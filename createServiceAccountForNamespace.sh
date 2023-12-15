@@ -47,7 +47,7 @@ metadata:
 type: kubernetes.io/service-account-token
 EOF
 
-echo "Show the secret/$SERVICEACCOUNT_NAME-token so we can see tha Kubernetes has added a valid cert and token"
+echo "Show the secret/$SERVICEACCOUNT_NAME-token so we can see that Kubernetes has added a valid cert and token"
 kubectl get secret/$SERVICEACCOUNT_NAME-token  -o yaml
 
 echo "export variables that we will need for creating the kubeconfig file"
@@ -64,7 +64,7 @@ export CLUSTER_SERVER=$(kubectl config view --raw -o=go-template='{{range .clust
 
 export -p USER_TOKEN_VALUE CURRENT_CONTEXT CURRENT_CLUSTER CLUSTER_CA CLUSTER_SERVER
 
-echo "Create local kubeconfig file  for Serviceaccount $SERVICEACCOUNT_NAME"
+echo "Create local kubeconfig file for Serviceaccount $SERVICEACCOUNT_NAME"
 cat << EOF > kubeconfig-${SERVICEACCOUNT_NAME}
 apiVersion: v1
 kind: Config
